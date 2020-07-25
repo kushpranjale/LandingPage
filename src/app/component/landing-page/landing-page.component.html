@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="row text-center first-row">
+    <div class="col">
+      <img
+        src="assets/logos/digiowner_log.png"
+        alt=""
+        class="img-responsive logo"
+      />
+    </div>
+  </div>
+  <div class="row text-center quote">
+    <div class="col"><div>We make the house A real Home for You</div></div>
+  </div>
+  <div class="row second-row">
+    <div class="col-md text-center">
+      <img
+        src="assets/bg_images/landing4.jpg"
+        alt=""
+        class="img-responsive bgImage"
+      />
+      <div class="carousel-caption caption text-center">
+        <div>Explore The World of Digitalisation with us</div>
+      </div>
+    </div>
+    <div class="col-md form-container">
+      <form
+        [formGroup]="leadGroup"
+        (ngSubmit)="onSubmit(myForm)"
+        #myForm="ngForm"
+      >
+        <div class="input-container">
+          <label>Name*</label> <input type="text" formControlName="name" />
+        </div>
+
+        <div
+          *ngIf="
+            leadGroup.get('name').errors &&
+            myForm.submitted &&
+            (leadGroup.get('name').dirty ||
+              leadGroup.get('name').touched ||
+              myForm.submitted)
+          "
+        >
+          <p *ngIf="leadGroup.get('name').errors.required" class="text-danger">
+            Field is required !!!
+          </p>
+        </div>
+        <div
+          *ngIf="spinner"
+          class="d-flex align-items-center justify-content-center spinner"
+        >
+          <p>Please wait Preparing Your Download</p>
+          <mat-spinner></mat-spinner>
+        </div>
+
+        <div class="input-container">
+          <label>Email*</label> <input type="text" formControlName="email" />
+        </div>
+        <div
+          *ngIf="
+            leadGroup.get('email').errors &&
+            (leadGroup.get('email').dirty ||
+              leadGroup.get('email').touched ||
+              myForm.submitted)
+          "
+        >
+          <p *ngIf="leadGroup.get('email').errors.pattern" class="text-danger">
+            Enter Valid Email Address
+          </p>
+          <p *ngIf="leadGroup.get('email').errors.required" class="text-danger">
+            Field is required !!!
+          </p>
+        </div>
+
+        <div class="input-container">
+          <label>Mobile Number*</label>
+          <input type="text" formControlName="mobile_no" />
+        </div>
+        <div
+          *ngIf="
+            leadGroup.get('mobile_no').errors &&
+            (leadGroup.get('mobile_no').dirty ||
+              leadGroup.get('mobile_no').touched ||
+              myForm.submitted)
+          "
+        >
+          <p
+            *ngIf="leadGroup.get('mobile_no').errors.pattern"
+            class="text-danger"
+          >
+            Enter Valid Number
+          </p>
+          <p
+            *ngIf="leadGroup.get('mobile_no').errors.required"
+            class="text-danger"
+          >
+            Field is required !!!
+          </p>
+        </div>
+        <div class="final_btn text-center">
+          <button class="btn" [hidden]="btn_status">Submit</button>
+          <p
+            [hidden]="!btn_status"
+            style="color: greenyellow; margin-bottom: -15px;"
+          >
+            Your fIle is ready to download and sent to {{ email_add }}
+          </p>
+          <button class="btn" [hidden]="!btn_status">Download</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row row-third">
+    <div class="col">
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed leo tortor,
+        vulputate nec lacus quis, iaculis porta nunc.
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  #someModal
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="!submitted"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Digiowner</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        File Sent to {{ email_add }} <br />
+        Thank You
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

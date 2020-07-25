@@ -1,0 +1,150 @@
+.bgImage {
+  height: 350px;
+  width: 300px;
+  //   filter: blur(3px);
+  //   -webkit-filter: blur(3px);
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  box-shadow: 10px 10px 5px black;
+}
+
+.first-row {
+  margin-top: 20px;
+}
+
+.second-row {
+  margin-top: 35px;
+}
+
+.caption {
+  height: 300px;
+  width: 300px;
+  padding: 15px;
+  margin: auto;
+}
+.caption div {
+  font-size: 25px;
+  font-weight: bold;
+  //   margin-top: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  //   align-items: center;
+}
+
+.form-container input {
+  margin-top: -7px;
+  border-radius: 5px;
+  width: 286px;
+  height: 34px;
+  border-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.input-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.form-container label {
+  color: white;
+  font-size: 14px;
+}
+.form-container button {
+  margin-top: 25px;
+  width: 286px;
+  height: 41px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #00c099;
+  color: white;
+}
+.row-third {
+  margin-top: 35px;
+  justify-content: center;
+  text-align: center;
+}
+
+.row-third div {
+  color: white;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.quote {
+  color: white;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5px;
+}
+.final_btn {
+  width: 286px;
+}
+.spinner {
+  position: absolute;
+  left: -15px;
+
+  width: 350px;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 5%;
+}
+
+@media screen and (max-width: 767px) {
+  .form-container {
+    margin-top: 15px;
+    align-items: center;
+  }
+  .input-container {
+    margin-top: 10px;
+  }
+  .bgImage {
+    height: 150px;
+  }
+  .caption {
+    height: 150px;
+  }
+  .logo {
+    height: 50px;
+    width: 250px;
+  }
+  .second-row {
+    margin-top: 15px;
+  }
+  .row-third {
+    margin-top: 15px;
+  }
+  .caption {
+    padding: 15px;
+  }
+  .caption div {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+
+    margin-right: 40px;
+  }
+  .quote {
+    font-size: 18px;
+
+    margin-top: 5px;
+  }
+  .row-third div {
+    font-size: 15px;
+  }
+  .spinner {
+    width: 300px;
+    left: 28px;
+    // right: 6px;
+  }
+  .spinner p {
+    font-size: 15px;
+    // right: 6px;
+  }
+}
