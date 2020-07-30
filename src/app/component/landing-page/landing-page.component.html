@@ -105,7 +105,9 @@
           >
             Your fIle is ready to download and sent to {{ email_add }}
           </p>
-          <button class="btn" [hidden]="!btn_status">Download</button>
+          <button class="btn" [hidden]="!btn_status" (click)="download()">
+            Download
+          </button>
         </div>
       </form>
     </div>

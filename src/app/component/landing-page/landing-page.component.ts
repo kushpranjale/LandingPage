@@ -1,6 +1,8 @@
+import { async } from '@angular/core/testing';
 import { LeadService } from './../../Services/lead.service';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
+import { saveAs } from 'file-saver';
 declare var $;
 @Component({
   selector: 'app-landing-page',
@@ -46,5 +48,18 @@ export class LandingPageComponent implements OnInit {
         console.log(response);
       });
     } else return;
+  }
+  download() {
+    this.leadService
+      .download('7226a97e739760f62d2418b4cfb99aaf')
+      .subscribe(async (result: any) => {
+        console.log(result);
+        const linkSource = (await 'data:application/pdf;base64,') + result;
+        const downloadLink = document.createElement('a');
+        const fileName = 'sample.pdf';
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
+      });
   }
 }
