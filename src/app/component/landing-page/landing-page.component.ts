@@ -14,6 +14,7 @@ export class LandingPageComponent implements OnInit {
   email_add = '';
   spinner = false;
   btn_status = false;
+  leadForm: any;
   email_pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   @ViewChild('someModal') someModal: ElementRef;
   constructor(
@@ -32,6 +33,7 @@ export class LandingPageComponent implements OnInit {
     });
   }
   onSubmit(myForm: any) {
+    this.leadForm = myForm;
     if (this.leadGroup.valid) {
       this.spinner = true;
 
@@ -44,7 +46,7 @@ export class LandingPageComponent implements OnInit {
         this.leadGroup.reset();
         this.btn_status = true;
         this.spinner = false;
-
+        this.leadGroup.disable();
         console.log(response);
       });
     } else return;
@@ -60,6 +62,10 @@ export class LandingPageComponent implements OnInit {
         downloadLink.href = linkSource;
         downloadLink.download = fileName;
         downloadLink.click();
+        this.btn_status = false;
+        this.leadGroup.enable();
+        this.leadForm.resetForm();
+        this.leadGroup.reset();
       });
   }
 }
