@@ -52,20 +52,18 @@ export class LandingPageComponent implements OnInit {
     } else return;
   }
   download() {
-    this.leadService
-      .download('7226a97e739760f62d2418b4cfb99aaf')
-      .subscribe(async (result: any) => {
-        console.log(result);
-        const linkSource = (await 'data:application/pdf;base64,') + result;
-        const downloadLink = document.createElement('a');
-        const fileName = 'sample.pdf';
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
-        this.btn_status = false;
-        this.leadGroup.enable();
-        this.leadForm.resetForm();
-        this.leadGroup.reset();
-      });
+    this.leadService.download().subscribe(async (result: any) => {
+      console.log(result);
+      const linkSource = (await 'data:application/pdf;base64,') + result;
+      const downloadLink = document.createElement('a');
+      const fileName = 'sample.pdf';
+      downloadLink.href = linkSource;
+      downloadLink.download = fileName;
+      downloadLink.click();
+      this.btn_status = false;
+      this.leadGroup.enable();
+      this.leadForm.resetForm();
+      this.leadGroup.reset();
+    });
   }
 }

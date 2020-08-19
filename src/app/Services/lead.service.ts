@@ -12,7 +12,7 @@ export class LeadService {
   addLead(data: {}) {
     return this.http.post(this.URL + 'add_lead', data);
   }
-  download(filename: string) {
-    return this.http.get(this.URL + 'download/' + filename);
+  download() {
+    return this.http.get(this.URL + 'download');
   }
 }
